@@ -33,6 +33,5 @@ print(board5)
 print("|\nv")
 print(board6)
 
-
-for move in board6.get_pawn_moves_at((5,3)):
+for move in King(1).get_moves((0,4)):
 	print(move)

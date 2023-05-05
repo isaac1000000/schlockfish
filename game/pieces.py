@@ -37,7 +37,6 @@ class Bishop(Piece):
 
 	@staticmethod
 	def get_moves(position):
-		# if the x value is greater than the y value, greatest_elem is x (+ v.v.)
 		x = position[0]
 		y = position[1]
 		yield [(x+i, y+i) for i in range(1, 8) if x+i<8 and y+i<8]
@@ -107,15 +106,19 @@ class King(Piece):
 			yield [(position[0]+1, position[1])]
 			if position[1] < 7:
 				yield [(position[0]+1, position[1]+1)]
-			if position[1] >= 0:
+			if position[1] > 0:
 				yield [(position[0]+1, position[1]-1)]
+		if position[0] > 0:
+			yield [(position[0]-1, position[1])]
+			if position[1] > 0:
+				yield [(position[0]-1, position[1]-1)]
+			if position[1] < 7:
+				yield [(position[0]-1, position[0]+1)]
 		if position[1] < 7:
 			yield [(position[0], position[1]+1)]
+		if position[1] > 0:
+			yield [(position[0], position[1]-1)]
 
-		yield [(position[0]-1, position[1])]
-		yield [(position[0], position[1]-1)]
-		yield [(position[0]-1, position[1]-1)]
-		yield [(position[0]-1, position[0]+1)]
 
 
 	def __str__(self):
