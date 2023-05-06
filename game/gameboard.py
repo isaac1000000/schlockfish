@@ -25,9 +25,9 @@ class BoardState:
 		]
 
 	def __str__(self):
-		result_string = "_________________\n"
+		result_string = "\u0332".join("  A B C D E F G H  ") + "\n"
 		for i in range(8):
-			result_string += "|"
+			result_string += str(8-i) +  "|"
 			for j in range(8):
 				if self.board[i][j] == None:
 					result_string += " |"
