@@ -98,7 +98,8 @@ class Pawn(Piece):
 
 class King(Piece):
 	def __init__(self, color):
-		super().__init__(color, 0)
+		# King is given an arbitrarily high pawn value to simplify engine
+		super().__init__(color, 1000)
 
 	@staticmethod
 	def get_moves(position):
@@ -113,7 +114,7 @@ class King(Piece):
 			if position[1] > 0:
 				yield [(position[0]-1, position[1]-1)]
 			if position[1] < 7:
-				yield [(position[0]-1, position[0]+1)]
+				yield [(position[0]-1, position[1]+1)]
 		if position[1] < 7:
 			yield [(position[0], position[1]+1)]
 		if position[1] > 0:

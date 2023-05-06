@@ -42,7 +42,7 @@ class BoardState:
 		# Check for valid move
 		piece_to_move = self.board[src[0]][src[1]]
 		for step in dest[:-1]:
-			if self.board[step[0]][step[1]] == None:
+			if self.board[step[0]][step[1]] != None:
 				return None
 
 		# Copy current board array into new board array

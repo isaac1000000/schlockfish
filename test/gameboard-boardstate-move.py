@@ -1,3 +1,6 @@
+import sys
+sys.path.append("..")
+
 from game import gameboard
 from game.pieces import *
 curr_board = gameboard.BoardState(0, (39, 39))
