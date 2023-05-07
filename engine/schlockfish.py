@@ -56,8 +56,10 @@ def best_move(board_state: BoardState, depth) -> BoardState:
 						if board_state.next_turn == 0:
 							if scores[0] - scores[1] > best_score:
 								next_best_move = move_board_state
+								best_score = scores[0] - scores[1]
 						else:
 							if scores[0] - scores[1] < best_score:
 								next_best_move = move_board_state
+								best_score = scores[0] - scores[1]
 
 	return next_best_move

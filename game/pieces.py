@@ -98,7 +98,8 @@ class Pawn(Piece):
 
 class King(Piece):
 	def __init__(self, color):
-		# King is given an arbitrarily high pawn value to simplify engine
+		# King is given an arbitrarily high pawn value to simplify engine,
+		# but this will eventually be changed
 		super().__init__(color, 1000)
 
 	@staticmethod

@@ -91,9 +91,11 @@ class BoardState:
 		if pawn.color == 1:
 			# Two-square move
 			if src[0] == 1:
-				yield [(src[0]+1, src[1]), (src[0]+2, src[1])]
+				if self.board[src[0]+2][src[1]] is None:
+					yield [(src[0]+1, src[1]), (src[0]+2, src[1])]
 			else:
-				yield [(src[0]+1, src[1])]
+				if self.board[src[0]+1][src[1]] is None:
+					yield [(src[0]+1, src[1])]
 			# Diagonal captures
 			if src[1] > 0 and self.board[src[0]+1][src[1]-1] is not None:
 				yield [(src[0]+1, src[1]-1)]
@@ -103,9 +105,11 @@ class BoardState:
 		else:
 			# Two-square move
 			if src[0] == 6:
-				yield [(src[0]-1, src[1]), (src[0]-2, src[1])]
+				if self.board[src[0]-2][src[1]] is None:
+					yield [(src[0]-1, src[1]), (src[0]-2, src[1])]
 			else:
-				yield [(src[0]-1, src[1])]
+				if self.board[src[0]-1][src[1]] is None:
+					yield [(src[0]-1, src[1])]
 			# Diagonal captures
 			if src[1] > 0 and self.board[src[0]-1][src[1]-1] is not None:
 				yield [(src[0]-1, src[1]-1)]
